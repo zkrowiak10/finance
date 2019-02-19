@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block Title %}
+Home
+{%endblock%}
+
+{%block main%}
+
+<table class="table table-striped">
+    <tr>
+        <th>Stock</th>
+        <th>Shares</th>
+        <th>Value</th>
+        <th>Date</th>
+    </tr>
+    {% for row in purchases %}
+    <tr>
+        <td>{{row['stock']}}</td>
+        <td>{{row['shares']}}</td>
+        <td>{{row['price']}}</td>
+        <td>{{row['date']}}</td>
+    </tr>
+    {% endfor %}
+
+
+{%endblock%}

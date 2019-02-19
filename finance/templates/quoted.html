@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block Title %}
+Quoted
+{%endblock%}
+
+{% block main %}
+<p>Shares for {{name}} are selling for {{price}}.</p>
+<p>Would you like to purchase?</p>
+<button class="btn btn-primary" type="submit">Purchase</button>
+{% endblock %}

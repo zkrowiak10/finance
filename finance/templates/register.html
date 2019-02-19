@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Test
+{% endblock %}
+
+{% block main %}
+    <form id = 'test' action="/register" method="post">
+        <div class="form-group">
+            <input id = 'name' autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password" placeholder="Password" type="password">
+        </div>
+        <div class="form-group">
+            <input class = "form-control" name = "confirmation" placeholder="Confirm Password" type = "password">
+        </div>
+        <button class="btn btn-primary" type="submit">Register</button>
+    </form>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    let state = true;
+    function check(){
+        var aj = new XMLHttpRequest;
+         aj.onreadystatechange = function(){
+            if (this.readyState == 4 && this.status == 200){
+                if (this.responseText){
+                    state=false;
+                }
+            }
+        };
+        let search = document.getElementById('name');
+        aj.open('GET', '/check?=' + search, true);
+        aj.send();
+    }
+
+    document.getElementById('test').addEventListener('submit', function(event){
+            check()
+            if (state){
+                event.preventDefault();
+                alert('username already exists');
+            }
+    });
+
+</script>
+
+{% endblock %}

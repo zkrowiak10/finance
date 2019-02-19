@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+<form action = '/sell' method = 'post'>
+    <select class='form-control' name='symbol'>
+        <option disabled selected value>Symbol</option>
+        {% for row in stocks %}
+        <option {{row['stock']}}>{{row['stock']}}</option>
+        {% endfor %}
+    </select>
+    <div class="form-group">
+        <input autocomplte='off' name='number' autofocus class='form-control' placeholder='0' required type='number'>
+    </div class="form-group">
+    <div>
+        <button type="submit">Sell</button>
+    </div>
+</form>
+
+{% endblock %}

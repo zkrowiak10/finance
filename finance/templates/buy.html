@@ -1,0 +1,27 @@
+{% extends "layout.html"%}
+
+{%block title%}
+Buy A Stock
+{% endblock %}
+
+{% block main %}
+<h1> Choose A Stock To Purchase</h1>
+<div>
+
+<form action="/buy" method='post'>
+    <div class="form-group">
+        <input autocomplete='off' name='stock' autofocus class="form-control" placeholder='Name of stock' type='text'>
+    </div>
+    <div class="form-group">
+        <input autocomplte='off' name='number' autofocus class='form-control' placeholder='0' required type='number'>
+    </div>
+    <div class="form-group">
+        <p name='price'></p>
+        <button type="submit">Purchase</button>
+    </div>
+</form>
+</div>
+
+
+
+{% endblock %}
